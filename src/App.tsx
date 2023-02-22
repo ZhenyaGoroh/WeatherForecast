@@ -4,7 +4,7 @@ import "./App.scss"
 function App() {
   return (
     <div>
-      <div>App1</div>
+      <div>App</div>
     </div>
   )
 }
