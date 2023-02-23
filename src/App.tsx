@@ -1,12 +1,13 @@
-import React from "react"
-import "./App.scss"
+import React from "react";
+import "./App.scss";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
 
 function App() {
   return (
     <div>
-      <div>App</div>
+      <WelcomePage />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

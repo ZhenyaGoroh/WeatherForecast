@@ -1,0 +1,15 @@
+@import "../../assets/general.scss";
+
+.welcomePage{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $gray-color;
+    color: #fff;
+    &__time{
+        font-size: 3rem;
+        font-weight: 500;
+    }
+}
