@@ -1,17 +1,50 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface GeolocationState {
-    geolocation: { latitude: number; longitude: number; city: string }[];
+  geolocation: GeolocationEl[];
+  autoGeolocation: GeolocationEl;
+}
+
+interface GeolocationEl {
+  latitude?: number;
+  longitude?: number;
+  city?: string;
 }
 
 const initialState: GeolocationState = {
-    geolocation: [{ latitude: 53.893009, longitude: 27.567444, city: "Minsk" }],
+  geolocation: [],
+  autoGeolocation: {},
 };
 
 export const geolocationSlice = createSlice({
-    name: "geolocation",
-    initialState,
-    reducers: {},
+  name: "geolocation",
+  initialState,
+  reducers: {
+    addAutoGeolocation: (
+      state,
+      action: PayloadAction<{
+        latitude: number;
+        longitude: number;
+        city: string;
+      }>
+    ) => {
+      const newAutoGeolocation: GeolocationEl = {
+        latitude: action.payload.latitude,
+        longitude: action.payload.longitude,
+        city: action.payload.city,
+      };
+      return { ...state, autoGeolocation: newAutoGeolocation };
+    },
+    addAutoGeoToGeolocation: (state) => {
+      return {
+        ...state,
+        geolocation: [...state.geolocation, state.autoGeolocation],
+      };
+    },
+  },
 });
+
+export const { addAutoGeolocation, addAutoGeoToGeolocation } =
+  geolocationSlice.actions;
 
 export default geolocationSlice.reducer;

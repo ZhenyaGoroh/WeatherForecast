@@ -1,6 +1,7 @@
 @import "../../assets/general.scss";
 
-.welcomePage{
+.welcomePage {
+    max-width: 100%;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -8,8 +9,67 @@
     align-items: center;
     background-color: $gray-color;
     color: #fff;
-    &__time{
+    &__time {
         font-size: 3rem;
         font-weight: 500;
     }
+}
+
+.modalWindow {
+    position: absolute;
+    box-sizing: border-box;
+    max-width: 30rem;
+    padding: 5rem;
+    width: 100%;
+    max-height: 20rem;
+    height: 100%;
+    background: #212121;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    gap: 1rem;
+
+    transition: 0.5s;
+    opacity: 0;
+    transform: scale(0);
+    &_opened {
+        opacity: 1;
+        transform: scale(1);
+    }
+    &_closed{
+        opacity: 1;
+        transform: scale(1.3);
+    }
+    &__btn {
+        font-family: inherit;
+        font-size: 1rem;
+        background-color: #212121;
+        border-radius: 2rem;
+        border: 1px solid #fff;
+        padding: 0.5rem 1rem;
+        color: #fff;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover {
+            color: #212121;
+            background-color: #fff;
+            transform: scale(1.1);
+        }
+    }
+    &__separator{
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+        align-items: center;
+        >span{
+            font-size: 1rem;
+        }
+    }
+}
+
+hr{
+    width: 100%;
 }
